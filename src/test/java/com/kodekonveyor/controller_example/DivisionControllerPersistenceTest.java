@@ -1,6 +1,9 @@
 package com.kodekonveyor.controller_example;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
+
+import java.time.Clock;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -36,4 +39,42 @@ public class DivisionControllerPersistenceTest
     verify(divisionEntityRepository)
         .save(DivisionEntityTestData.getIdUninitialized());
   }
+
+  @Test
+  @DisplayName("the dividend is persisted")
+  void test1() {
+    assertEquals(
+        DivisionEntityTestData.DIVIDEND,
+        DivisionEntityTestData.getIdUninitialized().getDividend()
+    );
+  }
+
+  @Test
+  @DisplayName("the divisor is persisted")
+  void test2() {
+    assertEquals(
+        DivisionEntityTestData.DIVISOR,
+        DivisionEntityTestData.getIdUninitialized().getDivisor()
+    );
+  }
+
+  @Test
+  @DisplayName("the result is persisted")
+  void test3() {
+    assertEquals(
+        DivisionEntityTestData.RESULT,
+        DivisionEntityTestData.getIdUninitialized().getResult()
+    );
+  }
+
+  @Test
+  @DisplayName("the time is persisted")
+  void test4() {
+    final Clock clock = clockFactory.get();
+    assertEquals(
+        clock.millis(),
+        DivisionEntityTestData.getIdUninitialized().getTime()
+    );
+  }
+
 }

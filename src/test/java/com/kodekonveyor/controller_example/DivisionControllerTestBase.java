@@ -6,6 +6,9 @@ import org.mockito.Mock;
 
 public class DivisionControllerTestBase {
 
+  @Mock
+  ClockFactory clockFactory;
+
   @InjectMocks
   DivisionController divisionController;
 
@@ -15,6 +18,7 @@ public class DivisionControllerTestBase {
   @BeforeEach
   void setUp() {
     DivisionEntityRepositoryStubs.behaviour(divisionEntityRepository);
+    ClockFactoryStubs.behaviour(clockFactory);
   }
 
 }

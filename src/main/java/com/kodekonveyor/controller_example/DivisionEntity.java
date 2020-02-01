@@ -17,5 +17,6 @@ public class DivisionEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
   Long result;
+  Long time;
 
 }

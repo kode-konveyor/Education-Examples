@@ -7,12 +7,15 @@ public class DivisionEntityTestData {
   public static Long ID = 42L;
   public static final long RESULT = 3L;
 
+  public static Long TIME = 123_123L;
+
   public static DivisionEntity get() {
     final DivisionEntity divisionEntity = new DivisionEntity();
     divisionEntity.setDividend(DivisionEntityTestData.DIVIDEND);
     divisionEntity.setDivisor(DivisionEntityTestData.DIVISOR);
     divisionEntity.setId(ID);
     divisionEntity.setResult(RESULT);
+    divisionEntity.setTime(TIME);
     return divisionEntity;
   }
 
